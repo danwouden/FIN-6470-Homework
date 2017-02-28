@@ -1,0 +1,324 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Chapter 5 Homework}
+\author{Dan Wouden }
+\date{February 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{5.1}
+Construct Table 5.1 from the perspective of a seller, providing a descriptive name
+for each of the transactions.
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ Description & Receipt of Payment at Time & Transfer Ownership if stock at time & Receipt of payment \\ [0.5ex] 
+ \hline\hline
+ Outright sale& 0 & 0 & S_{0} @time 0 \\ 
+ \hline
+ Sale of Stock and lending of money & T & 0 & S_{0}e^{rT} @ time T \\
+ \hline
+ Prepaid forward & 0 & T & ? \\
+ \hline
+ Short forward & T & T & ?\times e^{rt} \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{5.2}
+A \$50 stock pays a \$1 dividend every 3 months, with the first dividend coming 3
+months from today. The continuously compounded risk-free rate is 6\%.
+\subsection{ 5.2 a.}
+What is the price of a prepaid forward contract that expires 1 year from today,
+immediately after the fourth-quarter dividend?
+\[F^{P}_{0,T}=\$50 - \sum_{i=1}^{\4} \$1e^{-0.06\times\frac{3}{12}i}=\$50-\$0.985-\$0.970-\$0.956-\$0.942=\$50-\$3.853 = \$46.147\]
+ \subsection{ 5.2 b.}
+What is the price of a forward contract that expires at the same time?
+\[F_{0,T}=F^{P}_{0,T}\times e^{0.06\times 1}=\$46.147 × e^{0.06}  = \$49.00\]
+
+\section{5.3}
+A \$50 stock pays an 8\% continuous dividend. The continuously compounded riskfree
+rate is 6\%.
+\subsection{ 5.3 a.}
+What is the price of a prepaid forward contract that expires 1 year from today?
+\[F^{P}_{0,T}=\$50\times e^{-0.08 \times 1}=\$46.1558\]
+\subsection{ 5.3 b.}
+What is the price of a forward contract that expires at the same time?
+\[F_{0,T}=F^{P}_{0,T}\times e^{0.06\times 1}=\$46.1558\times e^{0.06\times 1}=\$49.01\]
+
+\section{5.4}
+Suppose the stock price is \$35 and the continuously compounded interest rate is 5\%.
+\subsection{ 5.4 a.}
+What is the 6-month forward price, assuming dividends are zero?
+\[F_{0,T}=S_{0}\times e^{r\times T}=\$35\times e^{0.05\times 0.5}=\$35.886\]
+\subsection{ 5.4 b.}
+If the 6-month forward price is \$35.50, what is the annualized forward
+premium?
+Annualized Forward Premium=\[\frac{1}{T}\ln{\frac{F_{0,T}}{S_{0}}}=\frac{1}{0.5}\ln{\frac{\$35.50}{\$35}}=0.0284\]
+\subsection{ 5.4 c.}
+If the forward price is \$35.50, what is the annualized continuous dividend
+yield?
+Annualized Forward Premium=\[\frac{1}{T}\ln{\frac{F_{0,T}}{S_{0}}}=\frac{1}{T}\ln{\frac{S_{0}\times e^{(r-\delta)T}}{S_0}}\]
+\[=\frac{1}{T}\ln{e^{(r-\delta)T}}=\frac{1}{T}(r-\delta)T\]
+\[=r-\delta\]
+\[0.0284=0.05-\delta\]
+\[\delta=0.0216\]
+Annualized continuous dividend yield = 2.16\%
+
+\section{5.5}
+Suppose you are a market-maker in S&R index forward contracts. The S&R index
+spot price is 1100, the risk-free rate is 5\%, and the dividend yield on the index is 0.
+\subsection{ 5.5 a.}
+What is the no-arbitrage forward price for delivery in 9 months?
+\[F_{0,T}=S_{0}\times e^{r\times T}=\$1100\times e^{0.05\times \frac{9}{12}}=\$1142.02\]
+\subsection{ 5.5 b.}
+Suppose a customer wishes to enter a short index futures position. If you take
+the opposite position, demonstrate how you would hedge your resulting long
+position using the index and borrowing or lending.
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 9 months \\ 
+ \hline\hline
+ Long forward & 0 & S_{T}-F_{0,T}=S_{T}-\$1142.02 \\ 
+ \hline
+ Short the index & +S_{0}=\$1100 & -S_{T} \\
+ \hline
+ Lend +S_{0} & -S_{0}=-\$1100 & S_{0}\times e^{rT}=\$1142.02 \\
+ \hline
+ Total & 0 & S_{0}\times e^{rT}-F_{0,T}=0 \\
+ \hline
+\end{tabular}
+\end{center}
+\subsection{ 5.5 c.}
+Suppose a customer wishes to enter a long index futures position. If you take
+the opposite position, demonstrate how you would hedge your resulting short
+position using the index and borrowing or lending.
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 9 months \\ 
+ \hline\hline
+ Short forward & 0 & F_{0,T}-S_{T}=\$1142.02-S_{T} \\ 
+ \hline
+ Buy the index & -S_{0}=-\$1100 & +S_{T} \\
+ \hline
+ Borrow +S_{0} & +S_{0}=\$1100 & -S_{0}\times e^{rT}=-\$1142.02 \\
+ \hline
+ Total & 0 & -F_{0,T}-S_{0}\times e^{rT}=0 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{5.6}
+Repeat the previous problem, assuming that the dividend yield is 1.5%
+\subsection{5.6 a.}
+\[F_{0,T}=S_{0}\times e^{(r-\delta)\times T}=\$1100\times e^{0.05-0.015)\times\frac{9}{12}}=\$1129.26\]
+\subsection{5.6 b.}
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 9 months \\ 
+ \hline\hline
+ Long forward & 0 & S_{T}-F_{0,T}=S_{T}-\$1129.26 \\ 
+ \hline
+ Short the index & +S_{0}e^{-\delta T}=\$1100\times .988=\$1087.69 & -S_{T} \\
+ \hline
+ Lend +S_{0}e^{-\delta T} & -S_{0}e^{-\delta T}=-\$1087.69 & S_{0}\times e^{(r-\delta)T}=\$1129.26 \\
+ \hline
+ Total & 0 & S_{0}\times e^{(r-\delta)T}-F_{0,T}=0 \\
+ \hline
+\end{tabular}
+\end{center}
+\subsection{5.6 c.}
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 9 months \\ 
+ \hline\hline
+ Short forward & 0 & F_{0,T}-S_{T}=\$1129.26-S_{T} \\ 
+ \hline
+ Buy the index & -S_{0}e^{\delta T}=-\$1100\times .988=-\$1087.69 & +S_{T} \\
+ \hline
+ Borrow +S_{0}e^{-\delta T} & +S_{0}e^{-\delta T}=\$1087.69 & -S_{0}\times e^{(r-\delta)T}=-\$1087.69\times e^{0.05\times\frac{9}{12}}=-\$1129.26 \\
+ \hline
+ Total & 0 & F_{0,T}-S_{0}\times e^{(r-\delta)T}=0 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{5.7}
+The S&R index spot price is 1100, the risk-free rate is 5\%, and the dividend yield
+on the index is 0.
+\subsection{ 5.7 a.}
+Suppose you observe a 6-month forward price of 1135. What arbitrage would
+you undertake?
+\[F_{0,T}=S_{0}\times e^{(r)\times T}=\$1100\times e^{0.05)\times\frac{6}{12}}=\$1127.85\]
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 6 months \\ 
+ \hline\hline
+ Short forward & 0 & \$1135.00-S_T \\ 
+ \hline
+ Buy the index & -\$1100 & S_{T} \\
+ \hline
+ Borrow \$1100 & -\$1100 & \$1127.85 \\
+ \hline
+ Total & 0 & \$7.15 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\subsection{5.7 b.}
+Suppose you observe a 6-month forward price of 1115. What arbitrage would you undertake?
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 6 months \\ 
+ \hline\hline
+ Long forward & 0 & S_{T}-\$1115.00 \\ 
+ \hline
+ Short the index & \$1100 & -S_{T} \\
+ \hline
+ Lend \$1100 & -\$1100 & \$1127.85 \\
+ \hline
+ Total & 0 & \$12.85 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{5.8}
+The S&R index spot price is 1100, the risk-free rate is 5\%, and the continuous
+dividend yield on the index is 2%.
+\subsection{ 5.8 a.}
+Suppose you observe a 6-month forward price of 1120. What arbitrage would
+you undertake?
+\[F_{0,T}=S_{0}\times e^{(r-\delta)\times T}=\$1100\times e^{0.05-0.02)\times\frac{6}{12}}=\$1116.62\]
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 6 months \\ 
+ \hline\hline
+ Short forward & 0 & \$1120.00-S_T \\ 
+ \hline
+ Buy the index & -\$1100\times .99=-\$1089.055 & S_{T} \\
+ \hline
+ Borrow \$1089.055 & \$1089.055 & -\$1116.62 \\
+ \hline
+ Total & 0 & \$3.38 \\
+ \hline
+\end{tabular}
+\end{center}
+\subsection{ 5.8 b.}
+Suppose you observe a 6-month forward price of 1110. What arbitrage would
+you undertake?
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ Description & Today & 6 months \\ 
+ \hline\hline
+ Long forward & 0 & S_{T}-\$1110.00 \\ 
+ \hline
+ Short the index & \$1100\times(0.99)=\$1089.055 & -S_{T} \\
+ \hline
+ Lend \$1089.055 & -\$1089.055 & \$1116.62 \\
+ \hline
+ Total & 0 & \$6.62 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{5.9}
+Suppose that 10 years from now it becomes possible for money managers to engage
+in time travel. In particular, suppose that a money manager could travel to January
+1981, when the 1-year Treasury bill rate was 12.5%. 
+\subsection{ 5.9 a.}
+If time travel were costless, what riskless arbitrage strategy could a money
+manager undertake by traveling back and forth between January 1981 and
+January 1982?\\
+If time travel were truely costless, a money manager could bring money from 1982, and travel back to 1981, invest
+it at the 12.5\% 1-year Treasury bill, and travel forward in time to 1982 to gain the accured interest and keep on repeating the process.
+\subsection{ 5.9 b.}
+If many money managers undertook this strategy, what would you expect to
+happen to interest rates in 1981?\\
+If time travel were possible and money managers undertook the above mentioned strategy, interest rates would decrease to essentially 0\%.
+\subsection{ 5.9 c.}
+Since interest rates were 12.5\% in January 1981, what can you conclude about
+whether costless time travel will ever be possible?\\
+Since interest rates were 12.5\% in January 1981, we know that costless time travel was/is not possible since rates are not 0.
+
+\section{5.11}
+Suppose the S&P 500 index futures price is currently 1200. You wish to purchase
+four futures contracts on margin.
+\subsection{ 5.11 a.}
+What is the notional value of your position?\\
+Notional value of 4 contracts are: \[4\times \$250\times 1200 = \$1200000\] 
+\subsection{ 5.11 b.}
+Assuming a 10\% initial margin, what is the value of the initial margin?\\
+Initial margin: \[\$1200000\times 0.10 = \$120000\]
+
+\section{5.15}
+Suppose the S&R index is 800, and that the dividend yield is 0. You are an arbitrageur
+with a continuously compounded borrowing rate of 5.5\% and a continuously
+compounded lending rate of 5\%. Assume that there is 1 year to maturity
+\subsection{ 5.15 a.}
+Supposing that there are no transaction fees, show that a cash-and-carry
+arbitrage is not profitable if the forward price is less than 845.23, and that a
+reverse cash-and-carry arbitrage is not profitable if the forward price is greater
+than 841.02.
+\[F^{+}=800e^{0.055}=\$845.23\]
+\[F^{-}=800e^{0.05}=\$841.02\]
+\subsection{ 5.15 b.}
+Now suppose that there is a \$1 transaction fee, paid at time 0, for going either
+long or short the forward contract. Show that the upper and lower no-arbitrage
+bounds now become 846.29 and 839.97.
+\[F^{+}=(800+1)e^{0.055}=\$846.29\]
+\[F^{-}=(800-1)e^{0.05}=\$839.97\]
+\subsection{ 5.15 c.}
+Now suppose that in addition to the fee for the forward contract, there is also
+a \$2.40 fee for buying or selling the index. Suppose the contract is settled by delivery of the index, so that this fee is paid only at time 0. What are the new
+upper and lower no-arbitrage bounds?
+\[F^{+}=(800+3.40)e^{0.055}=\$848.82\]
+\[F^{-}=(800-3.40)e^{0.05}=\$835.04\]
+\subsection{ 5.15 d.}
+Make the same assumptions as in the previous part, except assume that the
+contract is cash-settled. This means that it is necessary to pay the stock index
+transaction fee (but not the forward fee) at both times 0 and 1. What are the
+new no-arbitrage bounds?
+\[F^{+}=(800+3.40)e^{0.055}+2.40=\$851.22\]
+\[F^{-}=(800-3.40)e^{0.05}-2.40=\$835.04\]
+\subsection{ 5.15 e.}
+Now suppose that transactions in the index have a fee of 0.3\% of the value of
+the index (this is for both purchases and sales). Transactions in the forward
+contract still have a fixed fee of \$1 per unit of the index at time 0. Suppose the
+contract is cash-settled so that when you do a cash-and-carry or reverse cash and-carry
+you pay the index transaction fee both at time 1 and time 0. What
+are the new upper and lower no-arbitrage bounds? Compare your answer to
+that in the previous part. (Hint: To handle the time 1 transaction fee, you may
+want to consider tailing the stock position.)
+\[F^{+}=(800\times 1.003+800\times 0.003+1)e^{0.055}=\$851.36\]
+\[F^{-}=(800\times 0.997-800\times 0.003-1)e^{0.05}=\$834.92\]
+
+\section{5.16}
+Suppose the S&P 500 currently has a level of 875. The continuously compounded
+return on a 1-year T-bill is 4.75\%. You wish to hedge an \$800,000 portfolio that has
+a beta of 1.1 and a correlation of 1.0 with the S&P 500.
+\subsection{ 5.16 a.}
+What is the 1-year futures price for the S&P 500 assuming no dividends?
+\[F_{0,1}=875e^{0.0475}=\$917.57
+\subsection{ 5.16 b.}
+How many S&P 500 futures contracts should you short to hedge your portfolio?
+What return do you expect on the hedged portfolio?\\
+One futures contract has the value of: \[\$250\times 875 = \$218750\] 
+Number of
+Contracts we need to cover the exposure: \[\frac{\$800,000}{\$218,750} = 3.65714\]
+Total number of contracts to hedge: 
+\[3.65714 \times 1.1 = 4.02286\] 
+We should short 4.02286 S&P
+500 index future contracts.\\
+We have hedged our position in such a way that we have zero risk. We will earn the risk free interest rate.
+\end{document}
